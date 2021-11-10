@@ -1,0 +1,28 @@
+<br>
+<%= link_to "商品検索", search_products_path %>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+<%= form_for(@products) do |f| %>
+  <p>
+  <%= f.label :name, "商品名" %>
+  <%= f.text_field :name %>
+  </p>
+
+  <p>
+  <%= f.label :size,"サイズ" %>
+  <%= f.text_field :size %>
+  </p>
+
+  <p>
+  <%= f.label :color,"カラー" %>
+  <%= f.text_field :color %>
+  </p>
+
+  <p>
+  <%= f.label :quantity, "数量" %>
+  <%= f.text_field :quantity %>
+  </p>
+
+  <%= f.submit "登録"%>
+
+<% end %>

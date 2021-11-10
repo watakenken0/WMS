@@ -1,0 +1,30 @@
+<br>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+<%= link_to "新規登録", new_product_path %>
+
+<h1>商品名検索</h1>
+<%= form_with url: search_products_path, method: :get, local: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit :search %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>カラー</th>
+      <th>サイズ</th>
+      <th>数量</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.color %></td>
+        <td><%= product.size %></td>
+        <td><%= product.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
